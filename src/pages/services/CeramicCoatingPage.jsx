@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight, ChevronDown, ChevronUp, Car, Shield, Sparkles } from 'lucide-react';
 import { useState } from 'react';
 import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider';
 
@@ -25,9 +25,9 @@ const BENEFITS = [
 ];
 
 const PRICING_TIERS = [
-  { name: 'Standard', price: '₹12,000', features: ['1-Layer Coating', '1-Year Warranty', 'Sedan/Hatchback', 'Wash & Prep Included'] },
-  { name: 'Premium', price: '₹22,000', features: ['2-Layer Coating', '3-Year Warranty', 'Sedan/SUV', 'Paint Correction Included', 'Glass Coating'], highlighted: true },
-  { name: 'Ultimate', price: '₹35,000', features: ['3-Layer Coating', '5-Year Warranty', 'All Vehicle Sizes', 'Full Correction', 'Glass & Wheel Coating', 'Annual Inspection'] },
+  { name: 'Standard', price: '₹15,000', features: ['1-Layer Coating', '1-Year Warranty', 'Sedan/Hatchback', 'Wash & Prep Included'] },
+  { name: 'Premium', price: '₹28,000', features: ['2-Layer Coating', '3-Year Warranty', 'Sedan/SUV', 'Paint Correction Included', 'Glass Coating'], highlighted: true },
+  { name: 'Ultimate', price: '₹45,000', features: ['3-Layer Coating', '5-Year Warranty', 'All Vehicle Sizes', 'Full Correction', 'Glass & Wheel Coating', 'Annual Inspection'] },
 ];
 
 const FAQS = [
@@ -89,7 +89,7 @@ export default function CeramicCoatingPage() {
                 unmatched shine, hydrophobic performance, and scratch resistance.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+                <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
                 <Link to="/contact" className="btn-outline">Get a Quote</Link>
               </div>
             </AnimatedSection>
@@ -198,8 +198,8 @@ export default function CeramicCoatingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/book-appointment" className={tier.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>
-                    Book This Package
+                  <Link to="/contact" className={tier.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>
+                    Get This Package
                   </Link>
                 </div>
               </AnimatedSection>
@@ -219,17 +219,34 @@ export default function CeramicCoatingPage() {
             />
           </AnimatedSection>
           <AnimatedSection delay={150}>
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <ReactCompareSlider
-                handle={<ReactCompareSliderHandle buttonStyle={{ background: '#C80000', border: '2px solid #C80000', color: '#0A0A0A' }} />}
+                handle={
+                  <ReactCompareSliderHandle 
+                    buttonStyle={{ background: '#C80000', border: '3px solid rgba(255,255,255,0.2)', color: '#fff', width: 44, height: 44 }} 
+                    linesStyle={{ color: 'rgba(200,0,0,0.5)', width: 2 }}
+                  />
+                }
                 itemOne={
-                  <div className="w-full h-72 bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] flex items-end p-6">
-                    <span className="bg-brand-black/80 text-brand-silver text-xs px-3 py-1 uppercase tracking-widest">Before</span>
+                  <div className="relative w-full h-72 md:h-96 overflow-hidden bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800">
+                    <div className="absolute inset-0 bg-grid opacity-5" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Car size={140} className="text-white/10" strokeWidth={1} />
+                    </div>
+                    <span className="absolute bottom-6 left-6 bg-brand-black/80 backdrop-blur-sm text-brand-silver text-xs px-3 py-1.5 uppercase tracking-widest border border-brand-border">Before Ceramic Coating</span>
                   </div>
                 }
                 itemTwo={
-                  <div className="w-full h-72 bg-gradient-to-br from-[#180505] to-brand-card flex items-end p-6">
-                    <span className="bg-brand-red text-white text-xs px-3 py-1 uppercase tracking-widest font-semibold">After</span>
+                  <div className="relative w-full h-72 md:h-96 overflow-hidden bg-gradient-to-br from-blue-500 via-cyan-500 to-blue-600">
+                    <div className="absolute inset-0 bg-dots opacity-5" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="relative">
+                        <Shield size={120} className="text-white/30" strokeWidth={1.5} />
+                        <Sparkles size={50} className="absolute -top-3 -right-3 text-white/40 animate-pulse" />
+                        <div className="absolute inset-0 bg-white/10 blur-3xl animate-pulse" />
+                      </div>
+                    </div>
+                    <span className="absolute bottom-6 right-6 bg-brand-red text-white text-xs px-3 py-1.5 uppercase tracking-widest font-semibold">After Ceramic Coating</span>
                   </div>
                 }
                 style={{ width: '100%' }}
@@ -263,8 +280,8 @@ export default function CeramicCoatingPage() {
             <p className="text-brand-silver max-w-lg mx-auto mb-8">
               Book a free consultation and our experts will recommend the right ceramic coating package for your vehicle.
             </p>
-            <Link to="/book-appointment" className="btn-primary">
-              Book Appointment <ArrowRight size={16} />
+            <Link to="/contact" className="btn-primary">
+              Contact Us <ArrowRight size={16} />
             </Link>
           </AnimatedSection>
         </div>

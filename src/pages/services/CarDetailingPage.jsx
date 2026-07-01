@@ -88,7 +88,7 @@ export default function CarDetailingPage() {
                 Full-body premium detailing that restores your vehicle's paint to its finest condition using machine polishing, clay bar, and professional-grade protection.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+                <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
                 <Link to="/contact" className="btn-outline">Get a Quote</Link>
               </div>
             </AnimatedSection>
@@ -166,7 +166,7 @@ export default function CarDetailingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/book-appointment" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Book This Package</Link>
+                  <Link to="/contact" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Get This Package</Link>
                 </div>
               </AnimatedSection>
             ))}
@@ -192,8 +192,8 @@ export default function CarDetailingPage() {
         <div className="container-mv text-center">
           <AnimatedSection>
             <h2 className="font-display text-3xl font-bold text-brand-white mb-4">Give Your Car the Detail It Deserves</h2>
-            <p className="text-brand-silver max-w-lg mx-auto mb-8">Book a professional detail session and experience the MotorView transformation.</p>
-            <Link to="/book-appointment" className="btn-primary">Book Appointment <ArrowRight size={16} /></Link>
+            <p className="text-brand-silver max-w-lg mx-auto mb-8">Contact us for a professional detail session and experience the MotorView transformation.</p>
+            <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
           </AnimatedSection>
         </div>
       </section>

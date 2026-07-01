@@ -1,24 +1,22 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Award, Users, ShieldCheck, MapPin } from 'lucide-react';
+import { ArrowRight, Check, Award, Users, ShieldCheck, MapPin, Car, Sparkles } from 'lucide-react';
 import CountUp from 'react-countup';
 import { useInView } from 'react-intersection-observer';
 import SEO from '@/components/SEO/SEO';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
 import { STATS, TEAM_MEMBERS, WHY_CHOOSE_US } from '@/data/siteData';
+import founderImage from '@/assets/0da86541-6c56-4c7d-950f-d8f5057f462c.png';
 
 const ICON_MAP = { Award, Users, ShieldCheck, MapPin };
-function Img({ className, g }) {
-  return <div className={`bg-gradient-to-br ${g || 'from-brand-card to-brand-dark'} ${className}`} aria-hidden />;
-}
 function Stat({ stat }) {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.4 });
   return (
-    <div ref={ref} className="text-center px-4 py-6">
-      <div className="stat-number">
+    <div ref={ref} className="text-center px-3 py-5 sm:px-4 sm:py-6">
+      <div className="stat-number !text-2xl xs:!text-3xl sm:!text-4xl md:!text-5xl">
         {inView ? <CountUp end={stat.value} duration={2.2} separator="," /> : '0'}{stat.suffix}
       </div>
-      <p className="text-brand-silver text-xs uppercase tracking-[0.2em] mt-2">{stat.label}</p>
+      <p className="text-brand-silver text-2xs sm:text-xs uppercase tracking-[0.2em] mt-1.5 sm:mt-2">{stat.label}</p>
     </div>
   );
 }
@@ -33,14 +31,14 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="page-hero">
         <div className="absolute inset-0 bg-grid opacity-30" />
-        <div className="container-mv relative z-10">
+        <div className="container-mv relative z-10 px-4">
           <AnimatedSection>
             <span className="section-label">Our Story</span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white mt-2">
+            <h1 className="font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white mt-2">
               About <span className="text-red-gradient">MotorView</span>
             </h1>
-            <span className="accent-line mt-5 block" />
-            <p className="mt-5 text-brand-silver text-sm sm:text-base md:text-lg max-w-xl leading-relaxed font-light">
+            <span className="accent-line mt-4 sm:mt-5 block" />
+            <p className="mt-4 sm:mt-5 text-brand-silver text-sm sm:text-base md:text-lg max-w-xl leading-relaxed font-light">
               Eight years of passion, precision, and a relentless pursuit of perfection for every vehicle we touch.
             </p>
           </AnimatedSection>
@@ -50,24 +48,32 @@ export default function AboutPage() {
       {/* Story */}
       <section className="section-pad bg-brand-black">
         <div className="container-mv">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center">
             <AnimatedSection direction="right">
               <span className="section-label">The Beginning</span>
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-brand-white mt-2">
+              <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand-white mt-2">
                 Started by a Petrolhead,{' '}
                 <span className="text-red-gradient">Built for Petrolheads</span>
               </h2>
-              <span className="accent-line mt-4 block" />
-              <div className="mt-5 space-y-4 text-brand-silver text-sm sm:text-base leading-relaxed">
+              <span className="accent-line mt-3 sm:mt-4 block" />
+              <div className="mt-4 sm:mt-5 space-y-3 sm:space-y-4 text-brand-silver text-sm sm:text-base leading-relaxed">
                 <p>MotorView was born in 2016 in a small garage in Gurugram when our founder Rajan Khanna, frustrated by the lack of professional detailing options in India, decided to bring European-standard auto care to Indian car lovers.</p>
                 <p>Armed with certifications from CarPro and Gtechniq, and fuelled by an obsessive love for automobiles, Rajan built what started as a one-man operation into India's most trusted detailing brand, serving clients across 12 cities.</p>
                 <p>Today, our team of 25+ certified technicians has detailed over 5,000 vehicles — from daily commuters to exotic supercars — always with the same obsessive attention to detail.</p>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={150} direction="left">
-              <div className="relative mt-8 lg:mt-0">
-                <div className="absolute -top-3 -right-3 left-3 bottom-3 border border-brand-red/20" />
-                <Img className="w-full aspect-[4/3] relative z-10" g="from-[#1a0505] via-brand-card to-brand-dark" />
+              <div className="relative mt-6 lg:mt-0">
+                <div className="absolute -top-2 -right-2 left-2 bottom-2 sm:-top-3 sm:-right-3 sm:left-3 sm:bottom-3 border border-brand-red/20" />
+                <div className="relative z-10 w-full aspect-[4/3] overflow-hidden border border-brand-border bg-brand-dark">
+                  <img 
+                    src={founderImage} 
+                    alt="Motorwagen Evolution - The Car Revolution Company" 
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-black/30 to-transparent" />
+                </div>
               </div>
             </AnimatedSection>
           </div>
@@ -81,18 +87,18 @@ export default function AboutPage() {
           <AnimatedSection>
             <SectionTitle label="Purpose" title={<>Mission & <span className="text-red-gradient">Vision</span></>} center />
           </AnimatedSection>
-          <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 max-w-4xl mx-auto">
             {[
               { icon: Award, title: 'Our Mission', text: 'To provide world-class automotive protection and detailing services that preserve the beauty, value, and integrity of every vehicle entrusted to us — using only the finest products and techniques available.' },
               { icon: ShieldCheck, title: 'Our Vision', text: 'To become the most recognised and trusted auto detailing brand in South Asia, setting the benchmark for quality, customer experience, and innovation in vehicle care across every city we serve.' },
             ].map((card, i) => (
               <AnimatedSection key={card.title} delay={i * 120}>
-                <div className="card-dark p-7 sm:p-10 h-full border-t-2 border-t-brand-red">
-                  <div className="w-12 h-12 bg-brand-red/10 border border-brand-red/25 flex items-center justify-center mb-5">
-                    <card.icon size={22} className="text-brand-red" />
+                <div className="card-dark p-6 sm:p-8 lg:p-10 h-full border-t-2 border-t-brand-red">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-brand-red/10 border border-brand-red/25 flex items-center justify-center mb-4 sm:mb-5">
+                    <card.icon size={20} className="sm:w-[22px] sm:h-[22px] text-brand-red" />
                   </div>
-                  <h3 className="font-display text-xl sm:text-2xl font-bold text-brand-white mb-3">{card.title}</h3>
-                  <p className="text-brand-silver text-sm sm:text-base leading-relaxed">{card.text}</p>
+                  <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-brand-white mb-2 sm:mb-3">{card.title}</h3>
+                  <p className="text-brand-silver text-xs sm:text-sm lg:text-base leading-relaxed">{card.text}</p>
                 </div>
               </AnimatedSection>
             ))}
@@ -121,18 +127,22 @@ export default function AboutPage() {
               title={<>Meet Our <span className="text-red-gradient">Expert Team</span></>}
               subtitle="The dedicated professionals behind every flawless finish." center />
           </AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
             {TEAM_MEMBERS.map((m, i) => (
               <AnimatedSection key={m.id} delay={i * 80}>
                 <div className="card-dark group overflow-hidden h-full flex flex-col">
                   <div className="relative overflow-hidden">
-                    <Img className="w-full aspect-square transition-transform duration-700 group-hover:scale-105"
-                      g="from-brand-card to-[#1a0505]" />
+                    <div className="w-full aspect-square bg-gradient-to-br from-brand-card to-[#1a0505] flex items-center justify-center
+                      transition-transform duration-700 group-hover:scale-105">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-red/20 border-2 border-brand-red/40 flex items-center justify-center">
+                        <span className="text-brand-red font-display text-2xl sm:text-3xl font-bold">{m.name[0]}</span>
+                      </div>
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-black/80 to-transparent" />
                   </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-1">
-                    <h3 className="font-display text-base sm:text-lg font-bold text-brand-white">{m.name}</h3>
-                    <p className="text-brand-red text-2xs uppercase tracking-widest mt-1 mb-3 font-semibold">{m.role}</p>
+                  <div className="p-4 sm:p-5 lg:p-6 flex flex-col flex-1">
+                    <h3 className="font-display text-sm sm:text-base lg:text-lg font-bold text-brand-white">{m.name}</h3>
+                    <p className="text-brand-red text-2xs uppercase tracking-widest mt-1 mb-2 sm:mb-3 font-semibold">{m.role}</p>
                     <p className="text-brand-silver text-xs sm:text-sm leading-relaxed flex-1">{m.bio}</p>
                   </div>
                 </div>
@@ -149,17 +159,17 @@ export default function AboutPage() {
             <SectionTitle label="Why Us"
               title={<>The <span className="text-red-gradient">MotorView</span> Difference</>} center />
           </AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
             {WHY_CHOOSE_US.map((item, i) => {
               const Icon = ICON_MAP[item.icon] || Award;
               return (
                 <AnimatedSection key={item.id} delay={i * 80}>
-                  <div className="card-glass p-6 sm:p-8 text-center h-full flex flex-col items-center">
-                    <div className="w-14 h-14 bg-brand-red/10 border border-brand-red/25 flex items-center justify-center mb-5
+                  <div className="card-glass p-5 sm:p-6 lg:p-8 text-center h-full flex flex-col items-center">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand-red/10 border border-brand-red/25 flex items-center justify-center mb-4 sm:mb-5
                       hover:bg-brand-red/20 transition-colors">
-                      <Icon size={24} className="text-brand-red" />
+                      <Icon size={20} className="sm:w-[24px] sm:h-[24px] text-brand-red" />
                     </div>
-                    <h3 className="font-display text-base sm:text-lg font-bold text-brand-white mb-3">{item.title}</h3>
+                    <h3 className="font-display text-sm sm:text-base lg:text-lg font-bold text-brand-white mb-2 sm:mb-3">{item.title}</h3>
                     <p className="text-brand-silver text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </AnimatedSection>
@@ -170,22 +180,22 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1a0505] via-[#2d0808] to-[#0d0505]" />
         <div className="absolute inset-0 bg-grid opacity-20" />
-        <div className="container-mv relative text-center">
+        <div className="container-mv relative text-center px-4">
           <AnimatedSection>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4">
               Ready for the <span className="text-red-gradient">MotorView</span> Experience?
             </h2>
-            <p className="text-brand-silver max-w-xl mx-auto mb-8 text-sm sm:text-base font-light">
+            <p className="text-brand-silver max-w-xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base font-light">
               Book your appointment today and let our experts transform your vehicle.
             </p>
-            <div className="flex flex-col xs:flex-row items-center justify-center gap-3">
-              <Link to="/book-appointment" className="btn-primary w-full xs:w-auto">
-                Book Now <ArrowRight size={15} />
+            <div className="flex flex-col xs:flex-row items-stretch xs:items-center justify-center gap-3">
+              <Link to="/contact" className="btn-primary w-full xs:w-auto justify-center">
+                Contact Us <ArrowRight size={14} className="sm:w-[15px] sm:h-[15px]" />
               </Link>
-              <Link to="/services" className="btn-outline w-full xs:w-auto">View Services</Link>
+              <Link to="/services" className="btn-outline w-full xs:w-auto justify-center">View Services</Link>
             </div>
           </AnimatedSection>
         </div>

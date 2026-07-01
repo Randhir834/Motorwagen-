@@ -78,13 +78,14 @@ export default function Navbar() {
         <div className="h-0.5 bg-gradient-red w-full" />
 
         <div className="container-mv">
-          <div className="flex items-center justify-between h-16 sm:h-18 md:h-20">
+          <div className="flex items-center justify-between" style={{ height: 'clamp(4rem, 10vw, 5rem)' }}>
 
             {/* Logo */}
             <Link to="/" aria-label="MotorView — Home" className="flex-shrink-0 group">
               <img src={logo} alt="MotorView"
-                className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-all duration-300
+                className="w-auto object-contain transition-all duration-300
                   group-hover:drop-shadow-[0_0_12px_rgba(200,0,0,0.5)]"
+                style={{ height: 'clamp(2.25rem, 6vw, 3rem)' }}
                 draggable={false}
               />
             </Link>
@@ -136,22 +137,23 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden xl:flex items-center gap-3">
-              <a href="tel:+919999999999" aria-label="Call us"
+              <a href="tel:+917899741100" aria-label="Call us"
                 className="flex items-center gap-2 text-brand-silver hover:text-white text-xs font-medium transition-colors">
                 <Phone size={14} className="text-brand-red" />
-                <span>+91 99999 99999</span>
+                <span>+91 78997 41100</span>
               </a>
               <div className="w-px h-5 bg-brand-border" />
-              <Link to="/book-appointment" className="btn-primary !text-xs !px-5 !py-2.5">
-                Book Now <ArrowRight size={13} />
+              <Link to="/contact" className="btn-primary !text-xs !px-5 !py-2.5">
+                Contact Us <ArrowRight size={13} />
               </Link>
             </div>
 
             {/* Mobile hamburger */}
             <button onClick={() => setMobileOpen(p => !p)}
-              className="xl:hidden flex items-center justify-center w-10 h-10
+              className="xl:hidden flex items-center justify-center
                 border border-brand-border text-brand-silver hover:text-white
-                hover:border-brand-red/50 transition-all duration-200"
+                hover:border-brand-red/50 transition-all duration-200 touch-manipulation"
+              style={{ width: 'clamp(2.5rem, 8vw, 2.75rem)', height: 'clamp(2.5rem, 8vw, 2.75rem)' }}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
             >
@@ -237,14 +239,14 @@ export default function Navbar() {
 
           {/* Drawer footer */}
           <div className="px-5 py-5 border-t border-brand-border space-y-3">
-            <a href="tel:+919999999999"
+            <a href="tel:+917899741100"
               className="flex items-center gap-3 py-3 px-4 border border-brand-border
                 text-brand-silver hover:text-white hover:border-brand-red/50 transition-all text-sm">
               <Phone size={16} className="text-brand-red" />
-              +91 99999 99999
+              +91 78997 41100
             </a>
-            <Link to="/book-appointment" className="btn-primary w-full justify-center !text-xs">
-              Book Appointment <ArrowRight size={14} />
+            <Link to="/contact" className="btn-primary w-full justify-center !text-xs">
+              Contact Us <ArrowRight size={14} />
             </Link>
           </div>
         </div>

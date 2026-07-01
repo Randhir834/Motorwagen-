@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ReactCompareSlider, ReactCompareSliderHandle } from 'react-compare-slider';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Car, Sparkles, Shield, Wrench, Paintbrush, Droplets } from 'lucide-react';
 
 import SEO from '@/components/SEO/SEO';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
@@ -9,14 +9,6 @@ import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
 import { GALLERY_ITEMS } from '@/data/siteData';
 
 const FILTERS = ['All', 'Ceramic', 'PPF', 'Detailing', 'Interior'];
-
-// Gradient pairs for before/after placeholders
-const GRADIENT_PAIRS = [
-  { before: 'from-[#2a2a2a] to-[#1a1a1a]', after: 'from-[#1a1004] to-brand-card' },
-  { before: 'from-[#1a1a2a] to-[#0d0d1a]', after: 'from-[#0d1a0d] to-brand-dark' },
-  { before: 'from-[#2a1a0d] to-[#1a1a1a]', after: 'from-[#1a1004] to-[#2d1f00]' },
-  { before: 'from-[#1a2a2a] to-[#0d1a1a]', after: 'from-brand-card to-[#0d1a0d]' },
-];
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -36,14 +28,14 @@ export default function GalleryPage() {
 
       {/* Hero */}
       <section className="page-hero">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(201,168,76,0.06)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(200,0,0,0.08)_0%,transparent_70%)]" />
         <div className="container-mv relative z-10 text-center">
           <AnimatedSection>
             <span className="section-label justify-center">Our Portfolio</span>
             <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white mt-2">
-              The <span className="text-gold-gradient">Gallery</span>
+              The <span className="text-red-gradient">Gallery</span>
             </h1>
-            <div className="w-16 h-0.5 bg-gradient-gold mt-5 mx-auto" />
+            <div className="accent-line mt-5 mx-auto block" />
             <p className="mt-5 text-brand-silver text-sm sm:text-base md:text-lg max-w-xl mx-auto leading-relaxed font-light">
               Real results from real vehicles. Drag the sliders to compare before and after each transformation.
             </p>
@@ -56,15 +48,15 @@ export default function GalleryPage() {
         <div className="container-mv">
           {/* Filter Buttons */}
           <AnimatedSection>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 lg:mb-12">
               {FILTERS.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-6 py-2.5 text-sm font-medium uppercase tracking-widest transition-all duration-300
+                  className={`px-4 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-medium uppercase tracking-widest transition-all duration-300
                     ${activeFilter === filter
-                      ? 'bg-brand-gold text-brand-black'
-                      : 'border border-brand-border text-brand-silver hover:border-brand-gold hover:text-brand-gold'
+                      ? 'bg-brand-red text-white border-brand-red'
+                      : 'border border-brand-border text-brand-silver hover:border-brand-red hover:text-brand-red'
                     }`}
                 >
                   {filter}
@@ -76,46 +68,86 @@ export default function GalleryPage() {
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
             {filtered.map((item, i) => {
-              const pair = GRADIENT_PAIRS[i % GRADIENT_PAIRS.length];
+              // Create diverse gradients and icons for each gallery type
+              const visualConfig = {
+                Ceramic: { 
+                  beforeGradient: 'from-gray-600 via-gray-700 to-gray-800',
+                  afterGradient: 'from-blue-500 via-cyan-500 to-blue-600',
+                  icon: Shield 
+                },
+                PPF: { 
+                  beforeGradient: 'from-gray-700 via-gray-800 to-gray-900',
+                  afterGradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+                  icon: Shield 
+                },
+                Detailing: { 
+                  beforeGradient: 'from-stone-600 via-stone-700 to-stone-800',
+                  afterGradient: 'from-amber-500 via-orange-500 to-red-500',
+                  icon: Sparkles 
+                },
+                Interior: { 
+                  beforeGradient: 'from-slate-600 via-slate-700 to-slate-800',
+                  afterGradient: 'from-rose-500 via-pink-500 to-purple-500',
+                  icon: Paintbrush 
+                }
+              };
+              
+              const config = visualConfig[item.category] || visualConfig.Detailing;
+              const Icon = config.icon;
+              
               return (
                 <AnimatedSection key={item.id} delay={(i % 2) * 100}>
-                  <div className="card-dark overflow-hidden">
+                  <div className="card-dark overflow-hidden group hover:border-brand-red/40 transition-all duration-300">
                     <ReactCompareSlider
                       handle={
                         <ReactCompareSliderHandle
                           buttonStyle={{
-                            background: '#C9A84C',
-                            border: '2px solid #C9A84C',
-                            color: '#0A0A0A',
+                            background: '#C80000',
+                            border: '3px solid rgba(255,255,255,0.2)',
+                            color: '#fff',
+                            width: 44,
+                            height: 44,
                           }}
+                          linesStyle={{ color: 'rgba(200,0,0,0.5)', width: 2 }}
                         />
                       }
                       itemOne={
-                        <div className={`w-full h-64 md:h-72 bg-gradient-to-br ${pair.before} flex items-end p-4`}>
-                          <span className="bg-brand-black/80 text-brand-silver text-xs px-3 py-1 uppercase tracking-widest">
+                        <div className={`relative w-full h-56 sm:h-64 md:h-72 lg:h-80 overflow-hidden bg-gradient-to-br ${config.beforeGradient}`}>
+                          <div className="absolute inset-0 bg-grid opacity-5" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Car size={80} className="sm:w-28 sm:h-28 md:w-32 md:h-32 text-white/10" strokeWidth={1} />
+                          </div>
+                          <span className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-brand-black/80 backdrop-blur-sm text-brand-silver text-2xs sm:text-xs px-2 py-1 sm:px-3 sm:py-1.5 uppercase tracking-widest border border-brand-border">
                             Before
                           </span>
                         </div>
                       }
                       itemTwo={
-                        <div className={`w-full h-64 md:h-72 bg-gradient-to-br ${pair.after} flex items-end p-4`}>
-                          <span className="bg-brand-gold text-brand-black text-xs px-3 py-1 uppercase tracking-widest font-semibold">
+                        <div className={`relative w-full h-56 sm:h-64 md:h-72 lg:h-80 overflow-hidden bg-gradient-to-br ${config.afterGradient}`}>
+                          <div className="absolute inset-0 bg-dots opacity-5" />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="relative">
+                              <Icon size={70} className="sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-[100px] lg:h-[100px] text-white/30" strokeWidth={1.5} />
+                              <div className="absolute inset-0 bg-white/10 blur-3xl animate-pulse" />
+                            </div>
+                          </div>
+                          <span className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-brand-red text-white text-2xs sm:text-xs px-2 py-1 sm:px-3 sm:py-1.5 uppercase tracking-widest font-semibold">
                             After
                           </span>
                         </div>
                       }
                       style={{ width: '100%' }}
                     />
-                    <div className="p-5 flex items-center justify-between">
-                      <div>
-                        <h3 className="text-brand-white font-semibold text-sm">{item.title}</h3>
-                        <span className="text-brand-gold text-xs uppercase tracking-widest">{item.category}</span>
+                    <div className="p-4 sm:p-5 flex flex-col xs:flex-row items-start xs:items-center justify-between gap-3 xs:gap-2 bg-brand-black/50">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-brand-white font-semibold text-sm sm:text-base mb-1 truncate">{item.title}</h3>
+                        <span className="text-brand-red text-2xs sm:text-xs uppercase tracking-widest">{item.category}</span>
                       </div>
                       <Link
-                        to="/book-appointment"
-                        className="text-xs text-brand-silver hover:text-brand-gold transition-colors flex items-center gap-1"
+                        to="/contact"
+                        className="text-2xs sm:text-xs text-brand-silver hover:text-brand-red transition-colors flex items-center gap-1 sm:gap-1.5 font-medium whitespace-nowrap"
                       >
-                        Book Similar <ArrowRight size={12} />
+                        Book Similar <ArrowRight size={12} className="sm:w-[13px] sm:h-[13px]" />
                       </Link>
                     </div>
                   </div>
@@ -133,17 +165,17 @@ export default function GalleryPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#1a1004] via-[#2d1f00] to-[#1a1004] border-y border-brand-gold/20">
-        <div className="container-mv text-center">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-[#180505] via-[#2d0a0a] to-[#180505] border-y border-brand-red/20">
+        <div className="container-mv text-center px-4">
           <AnimatedSection>
-            <h2 className="font-display text-3xl font-bold text-brand-white mb-4">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand-white mb-3 sm:mb-4">
               Want Results Like These?
             </h2>
-            <p className="text-brand-silver max-w-lg mx-auto mb-8">
+            <p className="text-brand-silver text-sm sm:text-base max-w-lg mx-auto mb-6 sm:mb-8 leading-relaxed">
               Book your appointment today and let our experts transform your vehicle.
             </p>
-            <Link to="/book-appointment" className="btn-primary">
-              Book Now <ArrowRight size={16} />
+            <Link to="/contact" className="btn-primary w-full xs:w-auto justify-center">
+              Contact Us <ArrowRight size={14} className="sm:w-4 sm:h-4" />
             </Link>
           </AnimatedSection>
         </div>

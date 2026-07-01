@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 
-const SITE_NAME = 'MotorView';
+const SITE_NAME = 'Motorwagen Evolution';
 const DEFAULT_DESC =
-  'MotorView — Premium car detailing, ceramic coating, PPF, and interior detailing services across India. Trusted by 4,800+ happy clients.';
+  'Motorwagen Evolution — The Car Revolution Company. Premium car detailing, ceramic coating, PPF, Graphene & Borophene coating services in Bangalore. Trusted by thousands of happy clients.';
 const DEFAULT_KEYWORDS =
-  'car detailing, ceramic coating, PPF, paint protection film, car wash, interior detailing, bike detailing, auto detailing India';
+  'car detailing Bangalore, ceramic coating, PPF, paint protection film, Graphene coating, Borophene coating, car wash, interior detailing, bike detailing, auto detailing Bangalore, Motorwagen Evolution';
 const DEFAULT_OG_IMAGE = '/og-image.jpg';
 
 /**
@@ -28,7 +28,7 @@ export default function SEO({ title, description, keywords, ogImage }) {
       <meta name="description" content={metaDesc} />
       <meta name="keywords" content={metaKeywords} />
       <meta name="robots" content="index, follow" />
-      <meta name="author" content="MotorView Auto Detailing" />
+      <meta name="author" content="Motorwagen Evolution - The Car Revolution Company" />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />

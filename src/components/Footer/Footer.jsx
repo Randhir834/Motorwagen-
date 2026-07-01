@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
-import { AtSign, Share2, Video, MessageCircle, Phone, Mail, MapPin, ChevronRight, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, ChevronRight, Clock } from 'lucide-react';
+import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { NAV_LINKS, SERVICES } from '@/data/siteData';
 import logo from '@/assets/logo.jpeg';
 
 const SOCIAL = [
-  { icon: AtSign,        label: 'Instagram', href: 'https://instagram.com/motorview' },
-  { icon: Share2,        label: 'Facebook',  href: 'https://facebook.com/motorview' },
-  { icon: Video,         label: 'YouTube',   href: 'https://youtube.com/motorview' },
-  { icon: MessageCircle, label: 'WhatsApp',  href: 'https://wa.me/919999999999' },
+  { icon: FaInstagram,  label: 'Instagram', href: 'https://instagram.com/motorwagenevolution' },
+  { icon: FaFacebookF,  label: 'Facebook',  href: 'https://facebook.com/motorwagenevolution' },
+  { icon: FaYoutube,    label: 'YouTube',   href: 'https://youtube.com/motorwagenevolution' },
+  { icon: FaWhatsapp,   label: 'WhatsApp',  href: 'https://wa.me/917899741100' },
 ];
 
 const QUICK = NAV_LINKS.filter(l => !l.dropdown).slice(0, 7);
@@ -22,8 +23,8 @@ export default function Footer() {
       {/* Subtle noise pattern */}
       <div className="absolute inset-0 bg-dots opacity-30 pointer-events-none" />
 
-      <div className="relative container-mv py-14 sm:py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+      <div className="relative container-mv" style={{ paddingTop: 'clamp(3.5rem, 8vw, 5rem)', paddingBottom: 'clamp(3.5rem, 8vw, 5rem)' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: 'clamp(2.5rem, 6vw, 3rem)' }}>
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -53,7 +54,7 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2.5">
-              {[...QUICK, { label: 'Book Appointment', path: '/book-appointment' }].map(l => (
+              {QUICK.map(l => (
                 <li key={l.path}>
                   <Link to={l.path}
                     className="group flex items-center gap-2 text-brand-silver hover:text-white text-sm transition-all duration-200">
@@ -90,26 +91,26 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+919999999999"
+                <a href="tel:+917899741100"
                   className="flex items-start gap-3 text-brand-silver hover:text-white text-sm transition-colors group">
                   <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-brand-red/10 border border-brand-red/20 group-hover:bg-brand-red/20 transition-colors">
                     <Phone size={13} className="text-brand-red" />
                   </div>
                   <div>
                     <p className="text-2xs text-brand-silver/60 uppercase tracking-widest mb-0.5">Phone</p>
-                    +91 99999 99999
+                    +91 78997 41100
                   </div>
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@motorview.in"
+                <a href="mailto:hello@motorwagenevolution.in"
                   className="flex items-start gap-3 text-brand-silver hover:text-white text-sm transition-colors group">
                   <div className="w-8 h-8 flex-shrink-0 flex items-center justify-center bg-brand-red/10 border border-brand-red/20 group-hover:bg-brand-red/20 transition-colors">
                     <Mail size={13} className="text-brand-red" />
                   </div>
                   <div>
                     <p className="text-2xs text-brand-silver/60 uppercase tracking-widest mb-0.5">Email</p>
-                    hello@motorview.in
+                    info@motorwagenevolution.in
                   </div>
                 </a>
               </li>
@@ -119,7 +120,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-2xs text-brand-silver/60 uppercase tracking-widest mb-0.5">Address</p>
-                  123 Auto Plaza, Sector 18,<br />Gurugram, Haryana 122001
+                  K Narayanapura Main Rd,<br />Near K Narayanpura, Opp. De Grand Restaurant,<br />Signal, Narayanapura,<br />Bengaluru, Karnataka 560077
                 </div>
               </li>
               <li className="flex items-start gap-3 text-brand-silver text-sm">

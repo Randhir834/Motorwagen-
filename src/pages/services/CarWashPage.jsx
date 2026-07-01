@@ -58,7 +58,7 @@ export default function CarWashPage() {
                 method and pH-neutral products — zero swirl risk, maximum shine.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+                <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
                 <Link to="/contact" className="btn-outline">Get a Quote</Link>
               </div>
             </AnimatedSection>
@@ -157,7 +157,7 @@ export default function CarWashPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/book-appointment" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Book This Package</Link>
+                  <Link to="/contact" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Get This Package</Link>
                 </div>
               </AnimatedSection>
             ))}
@@ -168,9 +168,9 @@ export default function CarWashPage() {
       <section className="py-16 bg-gradient-to-r from-[#180505] via-[#2d0a0a] to-[#180505] border-y border-brand-red/20">
         <div className="container-mv text-center">
           <AnimatedSection>
-            <h2 className="font-display text-3xl font-bold text-brand-white mb-4">Book a Premium Wash Today</h2>
+            <h2 className="font-display text-3xl font-bold text-brand-white mb-4">Get a Premium Wash Today</h2>
             <p className="text-brand-silver max-w-lg mx-auto mb-8">Your car deserves better than a machine wash. Experience the MotorView hand wash difference.</p>
-            <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+            <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
           </AnimatedSection>
         </div>
       </section>

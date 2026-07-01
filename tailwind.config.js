@@ -68,7 +68,9 @@ export default {
         xs: '2px',
       },
       screens: {
-        xs: '480px',
+        'xxs': '320px',
+        'xs': '480px',
+        '3xl': '1920px',
       },
       spacing: {
         '18': '4.5rem',

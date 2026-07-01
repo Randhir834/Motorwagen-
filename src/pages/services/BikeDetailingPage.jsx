@@ -66,7 +66,7 @@ export default function BikeDetailingPage() {
                 to chrome polishing and ceramic protection — your ride gets the treatment it deserves.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+                <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
                 <Link to="/contact" className="btn-outline">Get a Quote</Link>
               </div>
             </AnimatedSection>
@@ -148,7 +148,7 @@ export default function BikeDetailingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/book-appointment" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Book This Package</Link>
+                  <Link to="/contact" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Get This Package</Link>
                 </div>
               </AnimatedSection>
             ))}
@@ -160,8 +160,8 @@ export default function BikeDetailingPage() {
         <div className="container-mv text-center">
           <AnimatedSection>
             <h2 className="font-display text-3xl font-bold text-brand-white mb-4">Your Ride Deserves the Best</h2>
-            <p className="text-brand-silver max-w-lg mx-auto mb-8">Book your bike detailing session and let our specialists bring your motorcycle back to showroom condition.</p>
-            <Link to="/book-appointment" className="btn-primary">Book Appointment <ArrowRight size={16} /></Link>
+            <p className="text-brand-silver max-w-lg mx-auto mb-8">Contact us for your bike detailing session and let our specialists bring your motorcycle back to showroom condition.</p>
+            <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
           </AnimatedSection>
         </div>
       </section>

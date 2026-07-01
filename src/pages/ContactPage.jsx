@@ -1,30 +1,33 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, AtSign, Share2, Video, MessageCircle, ArrowRight, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight, CheckCircle } from 'lucide-react';
+import { FaInstagram, FaFacebookF, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 
 import SEO from '@/components/SEO/SEO';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
+import { openWhatsApp, formatContactMessage, getWhatsAppLink } from '@/utils/whatsapp';
+import { CONTACT_INFO } from '@/utils/constants';
 
 const CONTACT_CARDS = [
   {
     icon: Phone,
     title: 'Phone',
-    lines: ['+91 99999 99999', '+91 88888 88888'],
-    href: 'tel:+919999999999',
+    lines: [CONTACT_INFO.PHONE_DISPLAY],
+    href: `tel:${CONTACT_INFO.PHONE}`,
     action: 'Call Now',
   },
   {
     icon: Mail,
     title: 'Email',
-    lines: ['hello@motorview.in', 'support@motorview.in'],
-    href: 'mailto:hello@motorview.in',
+    lines: [CONTACT_INFO.EMAIL, CONTACT_INFO.EMAIL_SUPPORT],
+    href: `mailto:${CONTACT_INFO.EMAIL}`,
     action: 'Send Email',
   },
   {
     icon: MapPin,
     title: 'Address',
-    lines: ['123 Auto Plaza, Sector 18,', 'Gurugram, Haryana 122001'],
-    href: 'https://maps.google.com',
+    lines: ['K Narayanapura Main Rd, near K Narayanpura,', 'Opp. De Grand Restaurant, Signal, Narayanapura,', 'Bengaluru, Karnataka 560077'],
+    href: 'https://www.google.com/maps/place/Motorwagen+Evolution,+K+Narayanapura+Main+Rd,+near+K+Narayanpura,+opp.+De+Grand+Restaurant,+K.Narayanapura,+Signal,+Narayanapura,+Bengaluru,+Karnataka+560077/data=!4m2!3m1!1s0x3bae1945d7df6c3d:0x4bf248b2504a3275',
     action: 'Get Directions',
   },
   {
@@ -84,12 +87,17 @@ export default function ContactPage() {
       setErrors(newErrors);
       return;
     }
+
+    // Send message via WhatsApp
+    const message = formatContactMessage(values);
+    openWhatsApp(message);
+    
+    // Show success message
     setLoading(true);
-    // Simulate async submit
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-    }, 1500);
+    }, 500);
   };
 
   return (
@@ -161,10 +169,19 @@ export default function ContactPage() {
               {submitted ? (
                 <div className="card-dark p-10 text-center">
                   <CheckCircle size={48} className="text-brand-red mx-auto mb-4" />
-                  <h3 className="font-display text-2xl font-bold text-brand-white mb-2">Message Sent!</h3>
-                  <p className="text-brand-silver">
-                    Thank you for reaching out. Our team will get back to you within 2 hours.
+                  <h3 className="font-display text-2xl font-bold text-brand-white mb-2">WhatsApp Opened!</h3>
+                  <p className="text-brand-silver mb-4">
+                    We've opened WhatsApp with your message pre-filled. Click send to reach us directly!
                   </p>
+                  <p className="text-brand-silver text-sm">
+                    Our team will respond within 2 hours.
+                  </p>
+                  <button
+                    onClick={() => setSubmitted(false)}
+                    className="mt-6 text-brand-red text-sm font-semibold hover:underline"
+                  >
+                    Send another message
+                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-5" aria-label="Contact form">
@@ -268,40 +285,40 @@ export default function ContactPage() {
             <AnimatedSection delay={200}>
               <div className="space-y-8">
                 {/* Map */}
-                <div className="w-full h-80 border border-brand-border overflow-hidden">
+                <div className="w-full h-64 sm:h-80 lg:h-96 border border-brand-border overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.1!2d77.0!3d28.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI0JzAwLjAiTiA3N8KwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.3947766885286!2d77.68641837507624!3d12.949147787375842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1945d7df6c3d%3A0x4bf248b2504a3275!2sMotorwagen%20Evolution!5e0!3m2!1sen!2sin!4v1719849600000!5m2!1sen!2sin"
                     width="100%"
                     height="100%"
                     style={{ border: 0, filter: 'grayscale(80%) invert(20%)' }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="MotorView Location Map"
+                    title="Motorwagen Evolution - K Narayanapura, Bengaluru"
                   />
                 </div>
 
                 {/* Social */}
-                <div className="card-dark p-8">
-                  <h3 className="font-display text-lg font-bold text-brand-white mb-5">Follow Us</h3>
-                  <div className="grid grid-cols-2 gap-3">
+                <div className="card-dark p-5 sm:p-6 lg:p-8">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-brand-white mb-4 sm:mb-5">Follow Us</h3>
+                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5 sm:gap-3">
                     {[
-                      { icon: AtSign, label: 'Instagram', href: 'https://instagram.com/motorview', colour: 'from-pink-600 to-purple-600' },
-                      { icon: Share2, label: 'Facebook', href: 'https://facebook.com/motorview', colour: 'from-blue-700 to-blue-500' },
-                      { icon: Video, label: 'YouTube', href: 'https://youtube.com/motorview', colour: 'from-red-700 to-red-500' },
-                      { icon: MessageCircle, label: 'WhatsApp', href: 'https://wa.me/919999999999', colour: 'from-green-700 to-green-500' },
+                      { icon: FaInstagram, label: 'Instagram', href: 'https://instagram.com/motorview', colour: 'from-pink-600 to-purple-600' },
+                      { icon: FaFacebookF, label: 'Facebook', href: 'https://facebook.com/motorview', colour: 'from-blue-700 to-blue-500' },
+                      { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/motorview', colour: 'from-red-700 to-red-500' },
+                      { icon: FaWhatsapp, label: 'WhatsApp', href: getWhatsAppLink(), colour: 'from-green-700 to-green-500' },
                     ].map(({ icon: Icon, label, href, colour }) => (
                       <a
                         key={label}
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-3 p-4 bg-gradient-to-r ${colour} text-white text-sm font-medium
-                          hover:opacity-90 transition-opacity`}
+                        className={`flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r ${colour} text-white text-xs sm:text-sm font-medium
+                          hover:opacity-90 transition-opacity justify-center xs:justify-start`}
                         aria-label={label}
                       >
-                        <Icon size={18} />
-                        {label}
+                        <Icon size={20} className="sm:w-6 sm:h-6 flex-shrink-0" />
+                        <span className="hidden xs:inline">{label}</span>
                       </a>
                     ))}
                   </div>

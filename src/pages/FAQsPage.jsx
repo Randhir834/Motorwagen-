@@ -12,15 +12,15 @@ function FaqItem({ faq, isOpen, onToggle }) {
     <div className="border border-brand-border hover:border-brand-red/40 transition-colors">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-6 py-5 text-left"
+        className="w-full flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 text-left gap-3"
         aria-expanded={isOpen}
         aria-controls={`faq-${faq.id}`}
       >
-        <span className="text-brand-white font-medium pr-4 leading-snug">{faq.question}</span>
-        <span className="flex-shrink-0 ml-2">
+        <span className="text-brand-white font-medium text-sm sm:text-base leading-snug flex-1 pr-2">{faq.question}</span>
+        <span className="flex-shrink-0">
           {isOpen
-            ? <ChevronUp size={17} className="text-brand-red" />
-            : <ChevronDown size={17} className="text-brand-silver" />
+            ? <ChevronUp size={15} className="sm:w-[17px] sm:h-[17px] text-brand-red" />
+            : <ChevronDown size={15} className="sm:w-[17px] sm:h-[17px] text-brand-silver" />
           }
         </span>
       </button>
@@ -30,7 +30,7 @@ function FaqItem({ faq, isOpen, onToggle }) {
         role="region"
         aria-hidden={!isOpen}
       >
-        <div className="px-6 pb-5 text-brand-silver text-sm leading-relaxed border-t border-brand-border pt-4">
+        <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-brand-silver text-xs sm:text-sm leading-relaxed border-t border-brand-border pt-3 sm:pt-4">
           {faq.answer}
         </div>
       </div>
@@ -65,28 +65,28 @@ export default function FAQsPage() {
       {/* Hero */}
       <section className="page-hero">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_50%,rgba(200,0,0,0.06)_0%,transparent_70%)]" />
-        <div className="container-mv relative z-10 text-center">
+        <div className="container-mv relative z-10 text-center px-4">
           <AnimatedSection>
             <span className="section-label justify-center">Help Centre</span>
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white mt-2">
+            <h1 className="font-display text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-brand-white mt-2">
               Frequently Asked <span className="text-red-gradient">Questions</span>
             </h1>
-            <div className="accent-line mt-5 mx-auto block" />
-            <p className="mt-5 text-brand-silver text-sm sm:text-base md:text-lg max-w-xl mx-auto font-light">
+            <div className="accent-line mt-4 sm:mt-5 mx-auto block" />
+            <p className="mt-4 sm:mt-5 text-brand-silver text-sm sm:text-base md:text-lg max-w-xl mx-auto font-light">
               Find quick answers to the questions we hear most often. Can't find what you need? Contact us directly.
             </p>
           </AnimatedSection>
 
           {/* Search */}
           <AnimatedSection delay={200}>
-            <div className="relative max-w-md mx-auto mt-8">
-              <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-silver" />
+            <div className="relative max-w-md mx-auto mt-6 sm:mt-8">
+              <Search size={14} className="sm:w-4 sm:h-4 absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-brand-silver" />
               <input
                 type="text"
                 placeholder="Search FAQs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="input-field pl-11"
+                className="input-field pl-9 sm:pl-11 text-sm"
                 aria-label="Search frequently asked questions"
               />
             </div>
@@ -96,9 +96,9 @@ export default function FAQsPage() {
 
       {/* FAQ Accordion — 2 column desktop */}
       <section className="section-pad bg-brand-black">
-        <div className="container-mv">
+        <div className="container-mv px-4">
           {filtered.length > 0 ? (
-            <div className="grid lg:grid-cols-2 gap-x-10 gap-y-2">
+            <div className="grid lg:grid-cols-2 gap-x-6 lg:gap-x-10 gap-y-2">
               {/* Left column */}
               <div className="space-y-2">
                 {leftColumn.map((faq) => (
@@ -117,9 +117,9 @@ export default function FAQsPage() {
               </div>
             </div>
           ) : (
-            <div className="text-center py-20">
-              <p className="text-brand-silver text-lg">No results found for "{searchQuery}"</p>
-              <button onClick={() => setSearchQuery('')} className="mt-4 text-brand-red text-sm hover:underline">
+            <div className="text-center py-16 sm:py-20">
+              <p className="text-brand-silver text-base sm:text-lg">No results found for "{searchQuery}"</p>
+              <button onClick={() => setSearchQuery('')} className="mt-4 text-brand-red text-xs sm:text-sm hover:underline">
                 Clear search
               </button>
             </div>
@@ -129,24 +129,24 @@ export default function FAQsPage() {
 
       {/* Still have questions */}
       <section className="section-pad bg-brand-dark border-t border-brand-border">
-        <div className="container-mv text-center">
+        <div className="container-mv text-center px-4">
           <AnimatedSection>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-brand-white mb-4">
+            <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-brand-white mb-3 sm:mb-4">
               Still Have Questions?
             </h2>
-            <p className="text-brand-silver max-w-lg mx-auto mb-8 text-sm">
+            <p className="text-brand-silver text-xs sm:text-sm max-w-lg mx-auto mb-6 sm:mb-8">
               Our team is available 7 days a week to answer any questions you might have about our services,
               pricing, or your specific vehicle requirements.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to="/contact" className="btn-primary">
-                Contact Us <ArrowRight size={16} />
+            <div className="flex flex-col xs:flex-row items-stretch xs:items-center justify-center gap-3 sm:gap-4">
+              <Link to="/contact" className="btn-primary w-full xs:w-auto justify-center">
+                Contact Us <ArrowRight size={14} className="sm:w-4 sm:h-4" />
               </Link>
               <a
-                href="https://wa.me/919999999999"
+                href="https://wa.me/917899741100"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline"
+                className="btn-outline w-full xs:w-auto justify-center"
               >
                 WhatsApp Us
               </a>

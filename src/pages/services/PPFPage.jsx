@@ -87,7 +87,7 @@ export default function PPFPage() {
                 scratches, and environmental damage — with a 10-year manufacturer warranty.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+                <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
                 <Link to="/contact" className="btn-outline">Get a Quote</Link>
               </div>
             </AnimatedSection>
@@ -211,8 +211,8 @@ export default function PPFPage() {
         <div className="container-mv text-center">
           <AnimatedSection>
             <h2 className="font-display text-3xl font-bold text-brand-white mb-4">Protect Your Paint Before It's Too Late</h2>
-            <p className="text-brand-silver max-w-lg mx-auto mb-8">Every day without PPF is another day your paint is at risk from road debris. Book your installation today.</p>
-            <Link to="/book-appointment" className="btn-primary">Book Appointment <ArrowRight size={16} /></Link>
+            <p className="text-brand-silver max-w-lg mx-auto mb-8">Every day without PPF is another day your paint is at risk from road debris. Contact us today.</p>
+            <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
           </AnimatedSection>
         </div>
       </section>

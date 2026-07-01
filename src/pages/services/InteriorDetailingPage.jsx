@@ -66,7 +66,7 @@ export default function InteriorDetailingPage() {
                 extracted carpets and conditioned leather — leaving your cabin fresh and luxurious.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/book-appointment" className="btn-primary">Book Now <ArrowRight size={16} /></Link>
+                <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
                 <Link to="/contact" className="btn-outline">Get a Quote</Link>
               </div>
             </AnimatedSection>
@@ -144,7 +144,7 @@ export default function InteriorDetailingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/book-appointment" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Book This Package</Link>
+                  <Link to="/contact" className={pkg.highlighted ? 'btn-primary justify-center' : 'btn-outline justify-center'}>Get This Package</Link>
                 </div>
               </AnimatedSection>
             ))}
@@ -157,7 +157,7 @@ export default function InteriorDetailingPage() {
           <AnimatedSection>
             <h2 className="font-display text-3xl font-bold text-brand-white mb-4">Transform Your Cabin Today</h2>
             <p className="text-brand-silver max-w-lg mx-auto mb-8">A clean interior is not just about looks — it's about the experience of being in your car every day.</p>
-            <Link to="/book-appointment" className="btn-primary">Book Appointment <ArrowRight size={16} /></Link>
+            <Link to="/contact" className="btn-primary">Contact Us <ArrowRight size={16} /></Link>
           </AnimatedSection>
         </div>
       </section>

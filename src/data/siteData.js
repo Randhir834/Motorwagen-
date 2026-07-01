@@ -18,10 +18,8 @@ export const NAV_LINKS = [
       { label: 'Bike Detailing', path: '/services/bike-detailing' },
     ],
   },
-  { label: 'Gallery', path: '/gallery' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'Testimonials', path: '/testimonials' },
-  { label: 'Blog', path: '/blog' },
   { label: 'FAQs', path: '/faqs' },
   { label: 'Contact', path: '/contact' },
 ];
@@ -30,11 +28,54 @@ export const NAV_LINKS = [
 export const SERVICES = [
   {
     id: 1,
+    slug: 'graphene-coating',
+    title: 'Graphene Coating',
+    shortDesc: 'Advanced graphene nano-technology coating with superior hydrophobic protection and deep gloss shine.',
+    fullDesc:
+      'Our premium Graphene Coating Package features cutting-edge nano-technology that provides unmatched protection for your vehicle. With advanced hydrophobic effects, your car stays cleaner longer while maintaining an incredible deep gloss and shine. Backed by a 5-year warranty and includes FREE Carware Sunfilm with every package.',
+    icon: 'Shield',
+    heroImage: null,
+    features: [
+      'Advanced Hydrophobic Effect',
+      'Deep Gloss & Shine',
+      'Scratch Resistant',
+      'UV & Weather Resistant',
+      'Chemical Resistant',
+      'Easy to Clean & Maintain',
+      '5 Year Warranty',
+      'FREE Carware Sunfilm Included',
+    ],
+    priceRange: 'Starting at ₹17,999',
+  },
+  {
+    id: 2,
+    slug: 'borophene-coating',
+    title: 'Borophene Coating',
+    shortDesc: 'Revolutionary borophene technology offering extreme gloss, superior protection, and 7-year peace of mind.',
+    fullDesc:
+      'Experience the next generation of paint protection with our Borophene Coating Package. This advanced technology delivers extreme gloss & clarity, superior scratch resistance, and long-lasting durability. With a comprehensive 7-year warranty and FREE Carware Sunfilm, your vehicle receives the ultimate protection package available.',
+    icon: 'Layers',
+    heroImage: null,
+    features: [
+      'Advanced Borophene Technology',
+      'Extreme Gloss & Clarity',
+      'Superior Scratch Resistance',
+      'UV & Weather Resistant',
+      'Chemical & Stain Resistant',
+      'Easy to Clean & Maintain',
+      'Long-Lasting Durability',
+      '7 Year Warranty',
+      'FREE Carware Sunfilm Included',
+    ],
+    priceRange: 'Starting at ₹19,999',
+  },
+  {
+    id: 3,
     slug: 'ceramic-coating',
     title: 'Ceramic Coating',
-    shortDesc: 'Industry-grade nano-ceramic protection that bonds to your paint for years of lasting shine.',
+    shortDesc: 'Professional-grade ceramic protection with 9H hardness for lasting shine and protection.',
     fullDesc:
-      'Our professional ceramic coating service provides an ultra-hard, chemical-resistant layer over your vehicle\'s paint. Using 9H hardness coatings, we ensure hydrophobic protection against UV rays, bird droppings, acid rain, and minor scratches. The coating self-cleans and maintains a showroom-level gloss for 3–5 years.',
+      'Our professional ceramic coating service provides an ultra-hard, chemical-resistant layer over your vehicle\'s paint. Using 9H hardness coatings, we ensure hydrophobic protection against UV rays, bird droppings, acid rain, and minor scratches.',
     icon: 'Shield',
     heroImage: null,
     features: [
@@ -47,15 +88,15 @@ export const SERVICES = [
       'Chemical Resistance',
       'Easy Maintenance',
     ],
-    priceRange: '₹12,000 – ₹35,000',
+    priceRange: '₹15,000 – ₹45,000',
   },
   {
     id: 2,
     slug: 'ppf',
-    title: 'Paint Protection Film',
+    title: 'Paint Protection Film (PPF)',
     shortDesc: 'Invisible urethane film shield that protects against rock chips, scratches, and road debris.',
     fullDesc:
-      'Paint Protection Film (PPF) is an optically clear, self-healing urethane film applied to high-impact areas of your vehicle. It absorbs impact from stone chips, bug splatter, and minor abrasions while remaining virtually invisible. Our installations use top-tier films with a 10-year manufacturer warranty.',
+      'Paint Protection Film (PPF) is an optically clear, self-healing urethane film applied to high-impact areas of your vehicle. It absorbs impact from stone chips, bug splatter, and minor abrasions while remaining virtually invisible.',
     icon: 'Layers',
     heroImage: null,
     features: [
@@ -68,7 +109,7 @@ export const SERVICES = [
       'Maintains Paint Value',
       'Stain Resistance',
     ],
-    priceRange: '₹18,000 – ₹80,000',
+    priceRange: '₹25,000 – ₹1,50,000',
   },
   {
     id: 3,
@@ -89,7 +130,7 @@ export const SERVICES = [
       'Glass Polishing',
       'Door Jamb Cleaning',
     ],
-    priceRange: '₹3,500 – ₹12,000',
+    priceRange: '₹4,500 – ₹15,000',
   },
   {
     id: 4,
@@ -110,7 +151,7 @@ export const SERVICES = [
       'Window Cleaning',
       'Zero Swirl Risk',
     ],
-    priceRange: '₹800 – ₹2,500',
+    priceRange: '₹999 – ₹3,500',
   },
   {
     id: 5,
@@ -131,7 +172,7 @@ export const SERVICES = [
       'Stain Removal',
       'Fabric Protection',
     ],
-    priceRange: '₹2,500 – ₹8,000',
+    priceRange: '₹3,500 – ₹10,000',
   },
   {
     id: 6,
@@ -152,7 +193,7 @@ export const SERVICES = [
       'Tank & Fairing Polish',
       'Wheel Detailing',
     ],
-    priceRange: '₹1,500 – ₹6,000',
+    priceRange: '₹1,999 – ₹7,500',
   },
 ];
 
@@ -218,56 +259,61 @@ export const TESTIMONIALS = [
 export const PACKAGES = [
   {
     id: 1,
-    name: 'Basic',
-    tagline: 'Essential Care',
-    price: '₹2,499',
-    period: 'per visit',
+    name: 'Graphene',
+    tagline: 'Advanced Protection',
+    price: '₹17,999',
+    period: 'starting',
     highlighted: false,
     features: [
-      'Exterior Hand Wash',
-      'Interior Vacuum',
-      'Dashboard Wipe',
-      'Tyre Dressing',
-      'Window Cleaning',
-      'Air Freshener',
+      'Graphene Coating Package',
+      'Advanced Hydrophobic Effect',
+      'Deep Gloss & Shine',
+      'Scratch Resistant',
+      'UV & Weather Resistant',
+      'Chemical Resistant',
+      'Easy to Clean & Maintain',
+      '5 Year Warranty',
+      'FREE Carware Sunfilm',
     ],
-    notIncluded: ['Machine Polishing', 'Ceramic Coating', 'PPF', 'Engine Cleaning'],
+    notIncluded: [],
   },
   {
     id: 2,
-    name: 'Silver',
-    tagline: 'Premium Detail',
-    price: '₹6,999',
-    period: 'per visit',
+    name: 'Borophene',
+    tagline: 'Ultimate Protection',
+    price: '₹19,999',
+    period: 'starting',
     highlighted: true,
     features: [
-      'Everything in Basic',
-      'Clay Bar Treatment',
-      'Machine Polishing',
-      'Spray Wax/Sealant',
-      'Engine Bay Cleaning',
-      'Leather Conditioning',
-      'Odour Elimination',
-      'Doorstep Service',
+      'Borophene Coating Package',
+      'Advanced Borophene Technology',
+      'Extreme Gloss & Clarity',
+      'Superior Scratch Resistance',
+      'UV & Weather Resistant',
+      'Chemical & Stain Resistant',
+      'Easy to Clean & Maintain',
+      'Long-Lasting Durability',
+      '7 Year Warranty',
+      'FREE Carware Sunfilm',
     ],
-    notIncluded: ['Ceramic Coating', 'PPF'],
+    notIncluded: [],
   },
   {
     id: 3,
-    name: 'Gold',
-    tagline: 'Ultimate Protection',
-    price: '₹18,999',
-    period: 'per visit',
+    name: 'Custom',
+    tagline: 'Tailored Solution',
+    price: 'Contact Us',
+    period: 'for quote',
     highlighted: false,
     features: [
-      'Everything in Silver',
-      'Ceramic Coating (1 Layer)',
-      'Paint Decontamination',
-      'Swirl Mark Correction',
-      'Glass Coating',
-      'Tyre Ceramic Coating',
-      'Interior Steam Clean',
-      '6-Month Protection Guarantee',
+      'Custom Package Design',
+      'Multiple Coating Layers',
+      'Full Paint Correction',
+      'PPF + Coating Combo',
+      'Glass & Wheel Coating',
+      'Interior Protection',
+      'Extended Warranty Options',
+      'Priority Service',
     ],
     notIncluded: [],
   },
@@ -334,6 +380,74 @@ export const FAQ_ITEMS = [
     question: 'What is the difference between car wash and car detailing?',
     answer:
       'A car wash is a surface-level cleaning that removes dirt and dust. Detailing goes much deeper — it involves paint correction, clay bar decontamination, polishing, interior extraction, and protection application. Detailing restores and protects; washing merely cleans.',
+  },
+];
+
+// ── Stats ─────────────────────────────────────────────────────
+export const STATS = [
+  { id: 1, value: 5000, suffix: '+', label: 'Cars Detailed' },
+  { id: 2, value: 8, suffix: '+', label: 'Years Experience' },
+  { id: 3, value: 4800, suffix: '+', label: 'Happy Clients' },
+  { id: 4, value: 12, suffix: '+', label: 'Cities Served' },
+];
+
+// ── Team Members ──────────────────────────────────────────────
+export const TEAM_MEMBERS = [
+  {
+    id: 1,
+    name: 'Rajan Khanna',
+    role: 'Founder & Master Detailer',
+    bio: '12 years of detailing experience. Certified by CarPro and Gtechniq. Passionate about bringing European detailing standards to India.',
+    avatar: null,
+  },
+  {
+    id: 2,
+    name: 'Amit Patel',
+    role: 'Ceramic Coating Specialist',
+    bio: 'Specialises in nano-ceramic applications and paint correction. Has worked on over 1,200 vehicles including supercars and luxury SUVs.',
+    avatar: null,
+  },
+  {
+    id: 3,
+    name: 'Deepak Nair',
+    role: 'PPF Installation Expert',
+    bio: 'Precision PPF cutter and installer. Trained by XPEL and 3M. Known for invisible, bubble-free installations on complex body panels.',
+    avatar: null,
+  },
+  {
+    id: 4,
+    name: 'Sanjana Roy',
+    role: 'Interior Detailing Lead',
+    bio: 'Expert in leather care, odour elimination, and cabin restoration. Trained in upholstery treatment and fabric protection technologies.',
+    avatar: null,
+  },
+];
+
+// ── Why Choose Us Features ────────────────────────────────────
+export const WHY_CHOOSE_US = [
+  {
+    id: 1,
+    icon: 'Award',
+    title: 'Premium Products',
+    desc: 'We use only certified, professional-grade products from globally trusted brands — never cheaper alternatives.',
+  },
+  {
+    id: 2,
+    icon: 'Users',
+    title: 'Expert Team',
+    desc: 'Every technician is factory-trained and certified. We invest in continuous education so your vehicle gets the best.',
+  },
+  {
+    id: 3,
+    icon: 'ShieldCheck',
+    title: 'Guaranteed Results',
+    desc: 'We stand behind every service with our satisfaction guarantee. Not happy? We redo it, no questions asked.',
+  },
+  {
+    id: 4,
+    icon: 'MapPin',
+    title: 'Doorstep Service',
+    desc: 'Can\'t come to us? We come to you. Our mobile units are fully equipped to deliver studio-quality results at your location.',
   },
 ];
 
@@ -438,73 +552,5 @@ export const GALLERY_ITEMS = [
     category: 'Interior',
     beforeImage: null,
     afterImage: null,
-  },
-];
-
-// ── Stats ─────────────────────────────────────────────────────
-export const STATS = [
-  { id: 1, value: 5000, suffix: '+', label: 'Cars Detailed' },
-  { id: 2, value: 8, suffix: '+', label: 'Years Experience' },
-  { id: 3, value: 4800, suffix: '+', label: 'Happy Clients' },
-  { id: 4, value: 12, suffix: '+', label: 'Cities Served' },
-];
-
-// ── Team Members ──────────────────────────────────────────────
-export const TEAM_MEMBERS = [
-  {
-    id: 1,
-    name: 'Rajan Khanna',
-    role: 'Founder & Master Detailer',
-    bio: '12 years of detailing experience. Certified by CarPro and Gtechniq. Passionate about bringing European detailing standards to India.',
-    avatar: null,
-  },
-  {
-    id: 2,
-    name: 'Amit Patel',
-    role: 'Ceramic Coating Specialist',
-    bio: 'Specialises in nano-ceramic applications and paint correction. Has worked on over 1,200 vehicles including supercars and luxury SUVs.',
-    avatar: null,
-  },
-  {
-    id: 3,
-    name: 'Deepak Nair',
-    role: 'PPF Installation Expert',
-    bio: 'Precision PPF cutter and installer. Trained by XPEL and 3M. Known for invisible, bubble-free installations on complex body panels.',
-    avatar: null,
-  },
-  {
-    id: 4,
-    name: 'Sanjana Roy',
-    role: 'Interior Detailing Lead',
-    bio: 'Expert in leather care, odour elimination, and cabin restoration. Trained in upholstery treatment and fabric protection technologies.',
-    avatar: null,
-  },
-];
-
-// ── Why Choose Us Features ────────────────────────────────────
-export const WHY_CHOOSE_US = [
-  {
-    id: 1,
-    icon: 'Award',
-    title: 'Premium Products',
-    desc: 'We use only certified, professional-grade products from globally trusted brands — never cheaper alternatives.',
-  },
-  {
-    id: 2,
-    icon: 'Users',
-    title: 'Expert Team',
-    desc: 'Every technician is factory-trained and certified. We invest in continuous education so your vehicle gets the best.',
-  },
-  {
-    id: 3,
-    icon: 'ShieldCheck',
-    title: 'Guaranteed Results',
-    desc: 'We stand behind every service with our satisfaction guarantee. Not happy? We redo it, no questions asked.',
-  },
-  {
-    id: 4,
-    icon: 'MapPin',
-    title: 'Doorstep Service',
-    desc: 'Can\'t come to us? We come to you. Our mobile units are fully equipped to deliver studio-quality results at your location.',
   },
 ];
