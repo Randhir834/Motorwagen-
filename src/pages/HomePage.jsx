@@ -15,6 +15,7 @@ import AnimatedSection from '@/components/AnimatedSection/AnimatedSection';
 import VideoHero from '@/components/VideoHero/VideoHero';
 import logo from '@/assets/logo.jpeg';
 import carVideo from '@/assets/CAR.mp4';
+import heroImage from '@/assets/0da86541-6c56-4c7d-950f-d8f5057f462c.png';
 import { SERVICES, TESTIMONIALS, PACKAGES, FAQ_ITEMS, BLOG_POSTS, STATS } from '@/data/siteData';
 
 const ICON_MAP = { Shield, Layers, Sparkles, Droplets, Sofa, Bike };
@@ -200,16 +201,13 @@ export default function HomePage() {
               <div className="relative mt-8 lg:mt-0">
                 <div className="absolute -top-3 -left-3 right-3 bottom-3 border border-brand-red/20 z-0" />
                 <div className="relative z-10 w-full aspect-[4/3] overflow-hidden border border-brand-border bg-brand-dark">
-                  {/* Modern SVG Illustration */}
+                  {/* Hero Image */}
+                  <img 
+                    src={heroImage} 
+                    alt="Motorwagen Evolution Car Detailing" 
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-red/10 via-transparent to-brand-red/5" />
-                  <div className="absolute inset-0 bg-grid opacity-10" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative">
-                      <Car size={120} className="text-brand-red/20" strokeWidth={1} />
-                      <Sparkles size={40} className="absolute -top-4 -right-4 text-brand-red/40 animate-pulse" />
-                      <Shield size={40} className="absolute -bottom-2 -left-2 text-brand-red/40 animate-pulse" style={{animationDelay: '0.5s'}} />
-                    </div>
-                  </div>
                 </div>
                 <div className="absolute -bottom-4 -right-4 z-20 bg-brand-red px-5 sm:px-6 py-3 sm:py-4 shadow-red-md">
                   <div className="font-display text-2xl sm:text-3xl font-black text-white">8+</div>
