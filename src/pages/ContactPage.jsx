@@ -301,26 +301,23 @@ export default function ContactPage() {
                 {/* Social */}
                 <div className="card-dark p-5 sm:p-6 lg:p-8">
                   <h3 className="font-display text-base sm:text-lg font-bold text-brand-white mb-4 sm:mb-5">Follow Us</h3>
-                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-2.5 sm:gap-3">
-                    {[
-                      { icon: FaInstagram, label: 'Instagram', href: 'https://instagram.com/motorview', colour: 'from-pink-600 to-purple-600' },
-                      { icon: FaFacebookF, label: 'Facebook', href: 'https://facebook.com/motorview', colour: 'from-blue-700 to-blue-500' },
-                      { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/motorview', colour: 'from-red-700 to-red-500' },
-                      { icon: FaWhatsapp, label: 'WhatsApp', href: getWhatsAppLink(), colour: 'from-green-700 to-green-500' },
-                    ].map(({ icon: Icon, label, href, colour }) => (
-                      <a
-                        key={label}
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center gap-2 sm:gap-3 p-3 sm:p-4 bg-gradient-to-r ${colour} text-white text-xs sm:text-sm font-medium
-                          hover:opacity-90 transition-opacity justify-center xs:justify-start`}
-                        aria-label={label}
-                      >
-                        <Icon size={20} className="sm:w-6 sm:h-6 flex-shrink-0" />
-                        <span className="hidden xs:inline">{label}</span>
-                      </a>
-                    ))}
+                  <div className="flex items-center gap-5 sm:gap-6 justify-center">
+                    <a href="https://instagram.com/motorview" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                      className="text-[#E4405F] hover:opacity-80 transition-opacity">
+                      <FaInstagram size={32} className="sm:w-10 sm:h-10" />
+                    </a>
+                    <a href="https://facebook.com/motorview" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                      className="text-[#1877F2] hover:opacity-80 transition-opacity">
+                      <FaFacebookF size={32} className="sm:w-10 sm:h-10" />
+                    </a>
+                    <a href="https://youtube.com/motorview" target="_blank" rel="noopener noreferrer" aria-label="YouTube"
+                      className="text-[#FF0000] hover:opacity-80 transition-opacity">
+                      <FaYoutube size={32} className="sm:w-10 sm:h-10" />
+                    </a>
+                    <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+                      className="text-[#25D366] hover:opacity-80 transition-opacity">
+                      <FaWhatsapp size={32} className="sm:w-10 sm:h-10" />
+                    </a>
                   </div>
                 </div>
               </div>

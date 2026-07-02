@@ -16,12 +16,20 @@
     -webkit-text-size-adjust: 100%;
   }
   
+  @media (min-width: 375px) {
+    html { font-size: 14.5px; }
+  }
+  
   @media (min-width: 480px) {
     html { font-size: 15px; }
   }
   
   @media (min-width: 640px) {
     html { font-size: 16px; }
+  }
+  
+  @media (min-width: 1280px) {
+    html { font-size: 17px; }
   }
   
   @media (min-width: 1920px) {
@@ -65,18 +73,26 @@
 
   /* ── Layout ──────────────────────────────────────────── */
   .container-mv  { 
-    @apply mx-auto;
-    padding-left: clamp(1rem, 4vw, 3rem);
-    padding-right: clamp(1rem, 4vw, 3rem);
+    @apply mx-auto w-full;
+    padding-left: clamp(1rem, 5vw, 3.5rem);
+    padding-right: clamp(1rem, 5vw, 3.5rem);
     max-width: 90rem;
   }
+  
+  @media (max-width: 374px) {
+    .container-mv {
+      padding-left: 0.875rem;
+      padding-right: 0.875rem;
+    }
+  }
+  
   .section-pad   { 
-    padding-top: clamp(3rem, 8vw, 7rem);
-    padding-bottom: clamp(3rem, 8vw, 7rem);
+    padding-top: clamp(3.5rem, 10vw, 7rem);
+    padding-bottom: clamp(3.5rem, 10vw, 7rem);
   }
   .section-pad-sm{ 
-    padding-top: clamp(2rem, 5vw, 4rem);
-    padding-bottom: clamp(2rem, 5vw, 4rem);
+    padding-top: clamp(2rem, 6vw, 4.5rem);
+    padding-bottom: clamp(2rem, 6vw, 4.5rem);
   }
 
   /* ── Buttons ─────────────────────────────────────────── */
@@ -89,10 +105,11 @@
            active:scale-100 active:translate-y-0
            focus-visible:ring-2 focus-visible:ring-brand-red
            select-none whitespace-nowrap;
-    gap: clamp(0.375rem, 1.5vw, 0.5rem);
-    padding: clamp(0.625rem, 2vw, 0.875rem) clamp(1.25rem, 4vw, 2rem);
-    font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+    gap: clamp(0.375rem, 2vw, 0.5rem);
+    padding: clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2.25rem);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
     min-height: 44px;
+    border-radius: clamp(0px, 0.3vw, 2px);
   }
   .btn-primary::after {
     content: '';
@@ -111,10 +128,11 @@
            hover:bg-brand-red hover:text-white hover:shadow-red-sm hover:-translate-y-0.5
            active:scale-100 active:translate-y-0
            select-none whitespace-nowrap;
-    gap: clamp(0.375rem, 1.5vw, 0.5rem);
-    padding: clamp(0.625rem, 2vw, 0.875rem) clamp(1.25rem, 4vw, 2rem);
-    font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+    gap: clamp(0.375rem, 2vw, 0.5rem);
+    padding: clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2.25rem);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
     min-height: 44px;
+    border-radius: clamp(0px, 0.3vw, 2px);
   }
   @media (hover: none) {
     .btn-outline:hover { transform: none; box-shadow: none; }
@@ -126,9 +144,9 @@
            transition-all duration-300
            hover:text-brand-red hover:gap-3
            select-none;
-    gap: clamp(0.375rem, 1.5vw, 0.5rem);
-    padding: clamp(0.5rem, 1.5vw, 0.625rem) clamp(0.75rem, 2.5vw, 1rem);
-    font-size: clamp(0.75rem, 1.8vw, 0.875rem);
+    gap: clamp(0.375rem, 2vw, 0.5rem);
+    padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.875rem, 3vw, 1.25rem);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
   }
 
   /* ── Cards ───────────────────────────────────────────── */
@@ -209,8 +227,8 @@
   /* ── Page hero ───────────────────────────────────────── */
   .page-hero {
     @apply relative overflow-hidden;
-    padding-top: clamp(5rem, 12vw, 9rem);
-    padding-bottom: clamp(3rem, 8vw, 5rem);
+    padding-top: clamp(6rem, 15vw, 10rem);
+    padding-bottom: clamp(3.5rem, 10vw, 6rem);
     background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,0,0,0.07) 0%, transparent 70%),
                 linear-gradient(180deg, #0D0D0D 0%, #050505 100%);
   }
@@ -306,6 +324,26 @@
   /* Hide scrollbar but allow scroll */
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  /* Responsive text utilities */
+  .text-responsive-xs { font-size: clamp(0.625rem, 1.5vw, 0.75rem); }
+  .text-responsive-sm { font-size: clamp(0.75rem, 2vw, 0.875rem); }
+  .text-responsive-base { font-size: clamp(0.875rem, 2.5vw, 1rem); }
+  .text-responsive-lg { font-size: clamp(1rem, 3vw, 1.25rem); }
+  .text-responsive-xl { font-size: clamp(1.25rem, 4vw, 1.5rem); }
+  .text-responsive-2xl { font-size: clamp(1.5rem, 5vw, 2rem); }
+  .text-responsive-3xl { font-size: clamp(1.875rem, 6vw, 2.5rem); }
+  .text-responsive-4xl { font-size: clamp(2.25rem, 7vw, 3rem); }
+  
+  /* Responsive spacing utilities */
+  .gap-responsive { gap: clamp(0.5rem, 2vw, 1rem); }
+  .gap-responsive-lg { gap: clamp(1rem, 4vw, 2rem); }
+  .gap-responsive-xl { gap: clamp(1.5rem, 5vw, 3rem); }
+  
+  .p-responsive { padding: clamp(1rem, 4vw, 2rem); }
+  .p-responsive-lg { padding: clamp(1.5rem, 5vw, 3rem); }
+  .px-responsive { padding-left: clamp(1rem, 4vw, 2rem); padding-right: clamp(1rem, 4vw, 2rem); }
+  .py-responsive { padding-top: clamp(1rem, 4vw, 2rem); padding-bottom: clamp(1rem, 4vw, 2rem); }
 }
 
 /* ============================================================
@@ -343,6 +381,13 @@ body {
 body {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-y: none;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+/* Fix for iOS Safari viewport height issue */
+html {
+  height: -webkit-fill-available;
 }
 
 /* Safe area insets for notched devices */
@@ -350,6 +395,13 @@ body {
   body {
     padding-left: max(0px, env(safe-area-inset-left));
     padding-right: max(0px, env(safe-area-inset-right));
+  }
+  
+  /* Floating buttons safe area */
+  .fixed.bottom-4,
+  .fixed.bottom-5,
+  .fixed.bottom-6 {
+    bottom: max(1rem, env(safe-area-inset-bottom));
   }
 }
 
