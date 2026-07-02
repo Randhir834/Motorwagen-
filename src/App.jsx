@@ -1,27 +1,30 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import MainLayout from '@/layouts/MainLayout';
 import WelcomeModal from '@/components/WelcomeModal/WelcomeModal';
+import PageLoader from '@/components/PageLoader/PageLoader';
 
-// Pages
+// Eager load only critical pages
 import HomePage from '@/pages/HomePage';
-import AboutPage from '@/pages/AboutPage';
-import ServicesPage from '@/pages/ServicesPage';
-import GalleryPage from '@/pages/GalleryPage';
-import PricingPage from '@/pages/PricingPage';
-import TestimonialsPage from '@/pages/TestimonialsPage';
-import BlogPage from '@/pages/BlogPage';
-import FAQsPage from '@/pages/FAQsPage';
-import ContactPage from '@/pages/ContactPage';
 
-import NotFoundPage from '@/pages/NotFoundPage';
+// Lazy load all other pages
+const AboutPage = lazy(() => import('@/pages/AboutPage'));
+const ServicesPage = lazy(() => import('@/pages/ServicesPage'));
+const GalleryPage = lazy(() => import('@/pages/GalleryPage'));
+const PricingPage = lazy(() => import('@/pages/PricingPage'));
+const TestimonialsPage = lazy(() => import('@/pages/TestimonialsPage'));
+const BlogPage = lazy(() => import('@/pages/BlogPage'));
+const FAQsPage = lazy(() => import('@/pages/FAQsPage'));
+const ContactPage = lazy(() => import('@/pages/ContactPage'));
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
-// Service sub-pages
-import CeramicCoatingPage from '@/pages/services/CeramicCoatingPage';
-import PPFPage from '@/pages/services/PPFPage';
-import CarDetailingPage from '@/pages/services/CarDetailingPage';
-import CarWashPage from '@/pages/services/CarWashPage';
-import InteriorDetailingPage from '@/pages/services/InteriorDetailingPage';
-import BikeDetailingPage from '@/pages/services/BikeDetailingPage';
+// Service sub-pages (lazy loaded)
+const CeramicCoatingPage = lazy(() => import('@/pages/services/CeramicCoatingPage'));
+const PPFPage = lazy(() => import('@/pages/services/PPFPage'));
+const CarDetailingPage = lazy(() => import('@/pages/services/CarDetailingPage'));
+const CarWashPage = lazy(() => import('@/pages/services/CarWashPage'));
+const InteriorDetailingPage = lazy(() => import('@/pages/services/InteriorDetailingPage'));
+const BikeDetailingPage = lazy(() => import('@/pages/services/BikeDetailingPage'));
 
 export default function App() {
   return (
@@ -30,21 +33,126 @@ export default function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/services/ceramic-coating" element={<CeramicCoatingPage />} />
-          <Route path="/services/ppf" element={<PPFPage />} />
-          <Route path="/services/car-detailing" element={<CarDetailingPage />} />
-          <Route path="/services/car-wash" element={<CarWashPage />} />
-          <Route path="/services/interior-detailing" element={<InteriorDetailingPage />} />
-          <Route path="/services/bike-detailing" element={<BikeDetailingPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/blog" element={<BlogPage />} />
-          <Route path="/faqs" element={<FAQsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<NotFoundPage />} />
+          <Route
+            path="/about"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <AboutPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <ServicesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/ceramic-coating"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <CeramicCoatingPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/ppf"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <PPFPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/car-detailing"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <CarDetailingPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/car-wash"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <CarWashPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/interior-detailing"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <InteriorDetailingPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/services/bike-detailing"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <BikeDetailingPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/gallery"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <GalleryPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/pricing"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <PricingPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/testimonials"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <TestimonialsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <BlogPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/faqs"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <FAQsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <NotFoundPage />
+              </Suspense>
+            }
+          />
         </Route>
       </Routes>
     </>

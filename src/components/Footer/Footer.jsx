@@ -23,8 +23,12 @@ export default function Footer() {
       {/* Subtle noise pattern */}
       <div className="absolute inset-0 bg-dots opacity-30 pointer-events-none" />
 
-      <div className="relative container-mv" style={{ paddingTop: 'clamp(3.5rem, 8vw, 5rem)', paddingBottom: 'clamp(3.5rem, 8vw, 5rem)' }}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: 'clamp(2.5rem, 6vw, 3rem)' }}>
+      <div className="relative container-mv" style={{ 
+        paddingTop: 'clamp(3.5rem, 10vw, 5rem)', 
+        paddingBottom: 'clamp(2rem, 6vw, 3rem)' 
+      }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" 
+          style={{ gap: 'clamp(2rem, 7vw, 3rem)' }}>
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -35,16 +39,23 @@ export default function Footer() {
               Premium auto detailing services that protect, restore, and elevate your vehicle.
               Trusted by automobile lovers across India.
             </p>
-            <div className="flex items-center gap-2.5">
-              {SOCIAL.map(({ icon: Icon, label, href }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                  className="w-9 h-9 flex items-center justify-center
-                    border border-brand-border text-brand-silver
-                    hover:border-brand-red hover:text-white hover:bg-brand-red/10
-                    transition-all duration-300">
-                  <Icon size={15} />
-                </a>
-              ))}
+            <div className="flex items-center gap-3">
+              <a href={SOCIAL[0].href} target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+                className="text-[#E4405F] hover:opacity-80 transition-opacity">
+                <FaInstagram size={24} />
+              </a>
+              <a href={SOCIAL[1].href} target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+                className="text-[#1877F2] hover:opacity-80 transition-opacity">
+                <FaFacebookF size={24} />
+              </a>
+              <a href={SOCIAL[2].href} target="_blank" rel="noopener noreferrer" aria-label="YouTube"
+                className="text-[#FF0000] hover:opacity-80 transition-opacity">
+                <FaYoutube size={24} />
+              </a>
+              <a href={SOCIAL[3].href} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+                className="text-[#25D366] hover:opacity-80 transition-opacity">
+                <FaWhatsapp size={24} />
+              </a>
             </div>
           </div>
 
@@ -140,12 +151,20 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="relative border-t border-brand-border">
-        <div className="container-mv py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-brand-silver/60 text-xs">© {year} MotorView Auto Detailing. All rights reserved.</p>
-          <p className="text-brand-silver/60 text-xs">Made with <span className="text-brand-red">♥</span> for automobile lovers</p>
-          <div className="flex items-center gap-4">
-            <Link to="/faqs" className="text-brand-silver/60 hover:text-brand-red text-xs transition-colors">Privacy</Link>
-            <Link to="/faqs" className="text-brand-silver/60 hover:text-brand-red text-xs transition-colors">Terms</Link>
+        <div className="container-mv py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+          <p className="text-brand-silver/60 text-2xs sm:text-xs text-center sm:text-left">
+            © {year} MotorView Auto Detailing. All rights reserved.
+          </p>
+          <p className="text-brand-silver/60 text-2xs sm:text-xs text-center">
+            Made with <span className="text-brand-red">♥</span> for automobile lovers
+          </p>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <Link to="/faqs" className="text-brand-silver/60 hover:text-brand-red text-2xs sm:text-xs transition-colors">
+              Privacy
+            </Link>
+            <Link to="/faqs" className="text-brand-silver/60 hover:text-brand-red text-2xs sm:text-xs transition-colors">
+              Terms
+            </Link>
           </div>
         </div>
       </div>

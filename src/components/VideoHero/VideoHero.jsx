@@ -29,7 +29,8 @@ export default function VideoHero({ videoSrc, title, subtitle, children }) {
   }, []);
 
   return (
-    <div className="relative w-full h-[60vh] xs:h-[70vh] md:h-[80vh] lg:h-screen overflow-hidden bg-brand-black">
+    <div className="relative w-full overflow-hidden bg-brand-black"
+      style={{ height: 'clamp(65vh, 85vh, 100vh)' }}>
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -43,15 +44,17 @@ export default function VideoHero({ videoSrc, title, subtitle, children }) {
       </video>
 
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-black/75 via-brand-black/60 to-brand-black/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-black/80 via-brand-black/65 to-brand-black/90" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center"
+        style={{ paddingLeft: 'clamp(1rem, 5vw, 2rem)', paddingRight: 'clamp(1rem, 5vw, 2rem)' }}>
         {children}
       </div>
 
       {/* Bottom Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 sm:h-32 bg-gradient-to-t from-brand-black to-transparent z-5" />
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-brand-black to-transparent z-5"
+        style={{ height: 'clamp(5rem, 15vw, 8rem)' }} />
     </div>
   );
 }

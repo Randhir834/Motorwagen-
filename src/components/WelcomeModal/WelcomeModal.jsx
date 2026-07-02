@@ -70,7 +70,6 @@ const WelcomeModal = () => {
         <div className="relative bg-gradient-to-br from-brand-black via-brand-card to-brand-black border-2 border-brand-red/30 shadow-[0_0_80px_rgba(200,0,0,0.3)] overflow-hidden">
           
           {/* Decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-red" />
           <div className="absolute -top-32 -right-32 w-32 h-32 sm:w-64 sm:h-64 bg-brand-red/5 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -left-32 w-32 h-32 sm:w-64 sm:h-64 bg-brand-red/5 rounded-full blur-3xl" />
           

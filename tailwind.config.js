@@ -70,7 +70,9 @@ export default {
       screens: {
         'xxs': '320px',
         'xs': '480px',
+        '2xl': '1536px',
         '3xl': '1920px',
+        '4xl': '2560px',
       },
       spacing: {
         '18': '4.5rem',

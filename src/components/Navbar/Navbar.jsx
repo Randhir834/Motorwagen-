@@ -83,7 +83,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" aria-label="MotorView — Home" className="flex-shrink-0 group">
               <img src={logo} alt="MotorView"
-                className="w-auto object-contain transition-all duration-300
+                className="w-auto object-contain transition-all duration-300 rounded-none
                   group-hover:drop-shadow-[0_0_12px_rgba(200,0,0,0.5)]"
                 style={{ height: 'clamp(2.25rem, 6vw, 3rem)' }}
                 draggable={false}
